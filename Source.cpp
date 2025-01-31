@@ -29,6 +29,19 @@ LPBYTE sendDeepSeek(LPWSTR lpszText)
 			const HINTERNET hRequest = HttpOpenRequest(hConnection, TEXT("GET"), UrlPath, 0, 0, 0, 0, 0);
 			if (hRequest)
 			{
+/*
+curl https://api.deepseek.com/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer <DeepSeek API Key>" \
+  -d '{
+        "model": "deepseek-chat",
+        "messages": [
+          {"role": "system", "content": "You are a helpful assistant."},
+          {"role": "user", "content": "Hello!"}
+        ],
+        "stream": false
+      }'
+*/
 				TCHAR szReferer[1024];
 				lstrcpy(szReferer, TEXT("Content-Type: application/json\r\nAuthorization:"));
 				lstrcat(szReferer, L"");
